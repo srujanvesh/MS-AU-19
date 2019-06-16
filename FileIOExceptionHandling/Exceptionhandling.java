@@ -1,6 +1,6 @@
 import java.io.*;
 import java.util.logging.*;
-public class logque{
+public class Exceptionhandling{
     
     public static void main(String[] args){
         Logger logger = Logger.getLogger("MyLog");

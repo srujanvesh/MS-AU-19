@@ -1,0 +1,6 @@
+Jun 16, 2019 12:05:31 PM Exceptionhandling main
+INFO: Divide by Zero
+Jun 16, 2019 12:05:31 PM Exceptionhandling main
+INFO: Array out of bounds
+Jun 16, 2019 12:05:31 PM Exceptionhandling main
+INFO: File not found
