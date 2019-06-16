@@ -23,7 +23,7 @@
 ## Excercise -1,2,3
 
     [SOURCE->ExceptionHandling.java]
-    [OUTPUT-> logFile.txt, logFile2.txt]
+    [OUTPUT-> logFile.txt]
 
 ###output
 ![](ExceptionHandling.png)

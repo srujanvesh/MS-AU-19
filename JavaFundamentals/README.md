@@ -6,3 +6,9 @@
 
 ###output
 ![](Telephone.png)
+
+## Excercise -2
+
+###output
+![](lift1.png)
+![](lift2.png)

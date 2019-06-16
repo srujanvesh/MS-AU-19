@@ -18,7 +18,7 @@
 
 ## Exercise -3(Generics)
 
-    [SOURCE-> MyGenericClass.java]
+    [SOURCE-> GenericClass.java]
 
 ### output
 ![](Generics.png)        
