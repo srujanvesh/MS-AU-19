@@ -7,6 +7,9 @@
 ###output
 ![](Telephone.png)
 
+###Design
+![](Design.png)
+
 ## Excercise -2
 
 ###output
