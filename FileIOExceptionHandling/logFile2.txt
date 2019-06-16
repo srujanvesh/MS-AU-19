@@ -1,4 +1,0 @@
-Jun 16, 2019 12:05:31 PM Exceptionhandling main
-WARNING: Arithmetic exception
-Jun 16, 2019 12:05:31 PM Exceptionhandling main
-SEVERE: file operations cant be done without the file

@@ -4,20 +4,20 @@ public class Exceptionhandling{
     
     public static void main(String[] args){
         Logger logger = Logger.getLogger("MyLog");
-        Logger logger2 = Logger.getLogger("second Log");
+        
         FileHandler fh;
-        FileHandler fh2;
+     
 
         int a = 10 , b = 0;
          try {   
             fh = new FileHandler("C:\\Users\\kotha.srujanvesh\\Desktop\\logFile.txt");
-            fh2 = new FileHandler("C:\\Users\\kotha.srujanvesh\\Desktop\\logFile2.txt");   
+            
             logger.addHandler(fh);
-            logger2.addHandler(fh2);
+            
             SimpleFormatter formatter = new SimpleFormatter();  
-            SimpleFormatter formatter2 = new SimpleFormatter();  
+          
             fh.setFormatter(formatter);    
-            fh2.setFormatter(formatter2);    
+              
         } catch (SecurityException e) {  
             e.printStackTrace();  
         } catch (IOException e) {  
@@ -28,28 +28,28 @@ public class Exceptionhandling{
         int c = a/b;
         }
         catch(ArithmeticException e){
-            logger2.warning("Arithmetic exception");
-            logger.info("Divide by Zero");
+            logger.warning("Arithmetic exception");
+            logger.info("Dividing by Zero exception");
         }
         try{
             int d[] = new int[10];
             System.out.println(d[10]);
         }
         catch(ArrayIndexOutOfBoundsException e){
-            logger2.finer("Access index within the size of an array");
-            logger.info("Array out of bounds");
+            logger.finer("Access index within the size of an array");
+            logger.info("Array index out of bounds");
         }
         try{
-        FileInputStream fis = new FileInputStream("D://gitRepo//MS-AU-2019//hello.txt");
+        FileInputStream fis = new FileInputStream("D://abc.txt");
         }
         catch(FileNotFoundException e){
-            logger2.severe("file operations cant be done without the file");
+           
             logger.info("File not found");
         }
 
         finally{
-            logger2.fine("Program has run successfully");
-            logger.fine("Program has run successfully");
+            
+            logger.fine("Successful Execution");
         }
         
     }
