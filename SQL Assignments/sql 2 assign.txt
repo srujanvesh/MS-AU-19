@@ -1,0 +1,107 @@
+
+1) Theatre Table
+
+create database onlinemovie;
+use onlinemovie;
+CREATE TABLE theatre (
+theatre_id int primary key,
+theatre_name varchar(30),
+location varchar(20));
+
+INSERT INTO theatre(`theatre_id`,`theatre_name`,`location`)
+VALUES(1,'Asian','Bangalore');
+
+2)Movie table
+
+CREATE TABLE movie (
+movie_id int primary key,
+movie_name varchar(30),
+genre varchar(30),
+release_date date,
+rating numeric(1)
+);
+
+INSERT INTO movie(`movie_id`,`movie_name`,`genre`,`release_date`,`rating`)
+VALUES(1,'Simha','horror',"2019-7-06",9);
+
+
+3)Ticket table
+
+CREATE TABLE ticket(
+ticket_no int primary key,
+show_id int ,
+theatre_id int,
+seat_no int,
+price numeric(7,2),
+foreign key (show_id) references shows(show_id),
+foreign key (theatre_id) references theatre(theatre_id)
+);
+insert into ticket values(1,1,1,1,22);
+
+4)Customer table
+
+CREATE TABLE customer (
+customer_id int primary key,
+customer_name varchar(30),
+phone_number numeric(12),
+email_id varchar(50)
+);
+Insert into customer values (1,"srujan",9133422440,"srujan@gmail.com");
+
+
+5)shows table
+
+CREATE TABLE shows (
+show_id int primary key,
+start_time date,
+duration int,
+theatre_id int,
+foreign key (theatre_id) references theatre(theatre_id)
+);
+
+Insert into  shows values(1,"2019-09-09",3,1);
+
+6)booking_details table
+
+CREATE TABLE booking_details (
+booking_id int primary key,
+booking_date date,
+customer_id int,
+ticket_no int ,
+foreign key (customer_id) references customer(customer_id),
+foreign key (ticket_no) references ticket(ticket_no)
+);
+
+INSERT INTO booking_details(`booking_id`,`booking_date`,`customer_id`,`ticket_no`)
+VALUES(1,"2019-7-07",1,1);
+
+
+7) Procedure to Book Ticket
+
+delimiter /
+create procedure BookNewTicket(in theatre_id int,in customer_id int,in date date,in show_id int,in no_of_tickets int)
+begin
+declare isAvailable int default -1;
+declare showId default -1
+declare defaultPrice int default 100;
+select show_id from shows where theatre_id = theatre_id and shows.show_id = show_id and shows.start_time=date and tickets >= no_of_tickets into showId;
+if show_id!=-1 then
+INSERT INTO ticket(`show_id`,`theatre_id`,`seat_no`,`price`) VALUES(showId,theatre_id,no_tickets,defaultPrice)
+INSERT INTO booking_details(`booking_date`,`customer_id`,`ticket_no`)
+VALUES(now(),customer_id,showId);
+update movie_ticket_booking.shows set tickets = tickets - no_tickets where show_id = show_id_new;
+end if;
+end //
+delimiter ;
+
+
+8)procedure to get booking details
+
+delimiter //
+create procedure Get_Booking_Details(in customer_id int,in booking_id int)
+begin
+select * from booking_details  where customer_id = customer_id and booking_id = booking_id;
+end //
+delimiter ;
+
+call Get_Booking_Details(1,1);

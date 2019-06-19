@@ -1,0 +1,85 @@
+1)before insert trigger
+
+delimiter $$
+CREATE TRIGGER  before_insert_check_age  BEFORE INSERT ON emp 
+FOR EACH ROW
+BEGIN
+IF NEW.emp_age < 25 THEN
+SIGNAL SQLSTATE '45000'
+SET MESSAGE_TEXT = 'ERROR: 
+         AGE MUST BE MORE THAN 25 YEARS!';
+END IF;
+END $$
+delimiter ;
+
+2)before delete trigger
+
+delimiter $$
+CREATE TRIGGER save_before_delete BEFORE DELETE ON emp
+FOR EACH ROW
+BEGIN
+INSERT INTO emp_duplicate
+VALUES (OLD.emp_id, OLD.emp_name, 
+        OLD.emp_age, OLD.dept_id);
+END $$
+delimiter ; 
+
+3)before update trigger
+
+delimiter $$
+create trigger before_update_employee
+Before update on emp
+for each row
+begin
+insert into emp_audit
+set action='before_update',
+emp_id=old.emp_id,
+emp_name=old.emp_name,
+date=now();
+end $$
+delimiter ;
+
+4)after insert trigger
+
+delimiter $$
+create trigger after_insert_employee
+after insert on emp
+for each row
+begin
+insert into emp_audit
+set action='after_insert',
+emp_id=new.emp_id,
+emp_name=new.emp_name,
+date=now();
+end $$
+delimiter ;
+
+5)after update trigger
+
+delimiter $$
+create trigger after_update_employee
+after update on emp
+for each row
+begin
+insert into emp_audit
+set action='after update',
+emp_id=new.emp_id,
+emp_name=new.emp_name,
+date=now();
+end $$
+delimiter ;
+
+6)after delete trigger
+
+delimiter $$
+create trigger after_delete_employee
+after delete on emp
+for each row
+begin
+insert into emp_audit
+set action='after delete',
+emp_id=old.emp_id,
+emp_name=old.emp_name,
+date=now();
+end $$
+delimiter ;
