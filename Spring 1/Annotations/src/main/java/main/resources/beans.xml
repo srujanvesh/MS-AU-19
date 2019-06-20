@@ -24,8 +24,12 @@
 	 
 	</bean>
 	<bean id="n" class="java.lang.String">
-		<constructor-arg value="This is string"></constructor-arg>
+		<constructor-arg value="This is a string"></constructor-arg>
 	</bean>
+	<bean id="r" class="java.lang.String">
+		<constructor-arg value="This is another string"></constructor-arg>
+	</bean>
+	 
 	 
 	 
 </beans>
