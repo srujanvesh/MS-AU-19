@@ -1,0 +1,9 @@
+<h2>Product List
+</h2>
+<ul *ngFor="let product of products">
+  <ul *ngFor="let detail of details">
+      <a *ngIf="detail == details[0];else elseBlock" routerLink="/product/displayone/{{product[detail]}}">{{detail}}:{{product[detail]}}</a>
+      <ng-template #elseBlock>{{detail}}:{{product[detail]}}</ng-template>
+     
+  </ul>
+</ul>

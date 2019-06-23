@@ -1,0 +1,12 @@
+<h2>Product List
+  </h2>
+  <ul *ngFor="let product of products">
+      <ul *ngFor="let detail of details">
+      <ul *ngIf="product[detail]==key">
+          <ul *ngFor="let detail of details">
+          {{detail}}:  {{product[detail]}}
+            </ul>
+    </ul>
+  </ul>
+  </ul>
+  <button type="button" class="btn btn-info" style="margin-left: 25%" routerLink="/product/displayall">back</button>
